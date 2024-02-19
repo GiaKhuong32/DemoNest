@@ -7,9 +7,13 @@ import { AccountDomain } from "../domain/account.domain";
 export class AccountController {
   constructor(private accountBaseInterop: AccountBaseInteropService) {
   }
+  @Get()
+  getAccounts() {
+    return this.accountBaseInterop.getAccount('token')
+  }
   @Get(':id')
-  getAccount(@Param('id') id: number) {
-    return this.accountBaseInterop.getAccount('token', id)
+  getAccountById(@Param('id') id: number) {
+    return this.accountBaseInterop.getAccountById('token', id)
   }
   @Post()
   createAccount(@Body() account: AccountDomain) {

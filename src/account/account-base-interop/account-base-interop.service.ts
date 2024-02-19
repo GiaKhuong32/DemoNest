@@ -6,8 +6,11 @@ import { AccountBaseUseCaseService } from "../base-use-case/base-use-case.servic
 export class AccountBaseInteropService implements AccountInterop {
   constructor(private accountUseCase: AccountBaseUseCaseService) {
   }
-    getAccount(token: string, id: number): AccountDomain {
-        return this.accountUseCase.getAccount(id)
+  getAccount(token: string): AccountDomain[] {
+    return this.accountUseCase.getAccount()
+  }
+    getAccountById(token: string, id: number): AccountDomain {
+        return this.accountUseCase.getAccountById(id)
     }
     createAccount(token: string, account: AccountDomain) {
         this.accountUseCase.createAccount(account)

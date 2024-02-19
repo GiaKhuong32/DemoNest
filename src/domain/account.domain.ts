@@ -7,21 +7,24 @@ export interface AccountDomain{
 }
 
 export interface AccountRepository{
-  getAccount(id: number): AccountDomain
+  getAccount(): AccountDomain[]
+  getAccountById(id: number): AccountDomain
   createAccount(account: AccountDomain)
   updateAccount(account: AccountDomain)
   deleteAccount(id: number)
 }
 
 export interface AccountUseCase{
-  getAccount(id: number): AccountDomain
+  getAccount(): AccountDomain[]
+  getAccountById(id: number): AccountDomain
   createAccount(account: AccountDomain)
   updateAccount(account: AccountDomain)
   deleteAccount(id: number)
 }
 
 export interface AccountInterop{
-  getAccount(token:string,id: number): AccountDomain
+  getAccount(token:string): AccountDomain[]
+  getAccountById(token:string,id: number): AccountDomain
   createAccount(token:string,account: AccountDomain)
   updateAccount(token:string,account: AccountDomain)
   deleteAccount(token:string,id: number)
